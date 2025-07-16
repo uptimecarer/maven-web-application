@@ -1,6 +1,7 @@
 node{
     def mavenHome = tool name :'maven-3.9.10'
-    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '4', artifactNumToKeepStr: '4', daysToKeepStr: '4', numToKeepStr: '4')), pipelineTriggers([pollSCM('* * * * *')])])
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '', numToKeepStr: '3')), 
+     pipelineTriggers([pollSCM(ignorePostCommitHooks: true, scmpoll_spec: '* * * * *')])])
     stage('CheckoutCode'){
         git branch: 'development', changelog: false, credentialsId: 'd1ab30c6-ca84-433d-96b9-c69a9527a71c', 
         poll: false, url: 'https://github.com/uptimecarer/maven-web-application.git'
