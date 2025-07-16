@@ -20,4 +20,12 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
             sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.126.157.153:/opt/tomcat9/webapps/"
         }
     }
+stage('SendEmailNotification'){
+mail bcc: '', body: '''Hi, 
+Welcome to uptime career.
+this is raveendra
+
+regards
+RRR''', cc: '', from: '', replyTo: '', subject: 'Build is completed.!!!', to: 'ganeshsunchu1990@gmail.com'
+}
 }
