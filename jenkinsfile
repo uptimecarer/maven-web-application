@@ -4,7 +4,7 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
 /*properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '', numToKeepStr: '3')), pipelineTriggers([pollSCM('* * * * *')])])*/
     stage('CheckoutCode'){
         git branch: 'development', changelog: false, credentialsId: 'd1ab30c6-ca84-433d-96b9-c69a9527a71c', 
-        poll: false, url: 'https://github.com/uptimecarer/maven-web-application.git'
+    poll: false, url: 'https://github.com/uptimecarer/maven-web-application.git'
     }
     stage('CreateMavenBuildArtifact'){
        sh "${mavenHome}/bin/mvn clean package"
