@@ -17,7 +17,7 @@ def mavenHome = tool name :'maven-3.9.10'
     }
     stage('DeployAppIntoApplicationServer-Tomcat'){
         sshagent(['327ed8ea-a078-4e1e-8435-ba4738d26d4b']) {
-            sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.233.31.80:/opt/tomcat9/webapps/"
+            sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@43.204.98.152:/opt/tomcat9/webapps/"
         }
     }
 stage('SendEmailNotification'){
